@@ -91,4 +91,4 @@ int task = myxaInstance1.motorReadings.taskId; //which task is currently active.
 int runControlMode = myxaInstance1.motorReadings.controlMode; //how motor is controlled. For example ZUBAX_MYXA_CONTROL_MODE_MECHANICAL_RPM (0x04)
 ```
 
-Qs an help: erik.kaju@gmail.com
+Qs and help: erik.kaju@gmail.com
