@@ -48,9 +48,9 @@ But this example might be totally sufficient codec implementation for similar us
 - Dynamic controller amount
   - Configure and control n+1 instances of Myxa microcontrollers (as many as serial ports your AVR supports)
 - Message implementations
-  - Hardware test: restart the motor controller in case of power loss or no power start. Restarting the AVR will attempt to restart the motor controller.
-  - Run task: make motor run at defined RPM
-  - Status message: reading of motor values - voltage, rpm etc.
+  - Hardware test: restart the motor controller in case of power loss or no power start. In these cases motor controller hangs up in IDLE error state. Restarting the AVR will attempt to restarting the motor controller.
+  - Run task: set motor to run at defined RPM
+  - Status message: reading motor values - voltage, rpm etc.
 
 #### Using it
 Defining an instance for motor controller. This structure will hold configuration parameters and parameter readings for particular motor.
