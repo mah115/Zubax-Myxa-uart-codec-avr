@@ -9,9 +9,9 @@ Getting started with the controller: https://forum.zubax.com/t/quick-start-guide
 ## Why this library/repo exists
 Zubax offers three protocols for motor controls: RCPWM, CAN BUS UAV and UART/USB.
 
-While RCPWM is a industry-standard in low precision use cases and CAN bus based [UAV CAN](http://uavcan.org/) has a great support, the serial based proprietary binary protocol was undocumented.
+While RCPWM is an industry-standard for low precision use cases and CAN bus based [UAV CAN](http://uavcan.org/) has a great support, the serial based proprietary binary protocol was undocumented.
 
-My use case was to control the controller from Arduino.
+My use case was to control the motor controller from Arduino.
 
 ## Myxa Uart Protocol
 The protocol is built on top of [Popcop](https://github.com/Zubax/popcop) - it features a strong data integrity protection and resilience to packet losses. This protocol is leveraged by the [Kucher GUI tool](https://github.com/Zubax/kucher). As Kucher is open source, the developer ([Zubax Robotics](https://zubax.com/)) are encouraged to use it as an example 
