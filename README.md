@@ -14,9 +14,9 @@ While RCPWM is an industry-standard for low precision use cases and CAN bus base
 My use case was to control the motor controller from Arduino over serial.
 
 ## Myxa Uart Protocol
-The protocol is built on top of [Popcop](https://github.com/Zubax/popcop) - it features a strong data integrity protection and resilience to packet losses. This protocol is leveraged by the [Kucher GUI tool](https://github.com/Zubax/kucher). As Kucher is open source, the developer ([Zubax Robotics](https://zubax.com/)) are encouraged to use it as an example 
+The protocol is built on top of [Popcop](https://github.com/Zubax/popcop) - it features a strong data integrity protection and resilience to packet losses. This protocol is leveraged by the [Kucher GUI tool](https://github.com/Zubax/kucher). As Kucher is open source, the developer ([Zubax Robotics](https://zubax.com/)) encourages to use it as an example 
 
-That's what I needed to do for my use case. I reverse engineered required parts of the protocol by learning the desktop application [source code](https://github.com/Zubax/kucher/blob/001014676421c601a7c125cadf2274832f392ab5/kucher/model/device_model/general_status_view.py#L158) and sniffed the serial communication into hex dump.
+That's what I needed to do for my use case. I reverse engineered required parts of the protocol by learning the desktop application [source code](https://github.com/Zubax/kucher/blob/001014676421c601a7c125cadf2274832f392ab5/kucher/model/device_model/general_status_view.py#L158) and sniffing the serial communication into hex dumps and analysing.
 
 ###Understanding the transport layer
 Popcop is modeled after the [HDLC protocol](https://en.wikipedia.org/wiki/High-Level_Data_Link_Control).
@@ -43,14 +43,14 @@ But this example might be totally sufficient codec implementation for similar us
 
 ### Features
 - Transport layer
-  - Constructing, sending, receiving and decoding popcop messages
+  - Constructing, sending, receiving and decoding valid popcop messages
   - [CRC32C](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) cyclic redundancy check implementation 
 - Dynamic controller amount
   - Configure and control n+1 instances of Myxa microcontrollers (as many as serial ports your AVR supports)
 - Message implementations
-  - Hardware test
-  - Run task
-  - Status message
+  - Hardware test: restart the motor controller in case of power loss or no power start. Restarting the AVR will attempt to restart the motor controller.
+  - Run task: make motor run at defined RPM
+  - Status message: reading of motor values - voltage, rpm etc.
 
 #### Using it
 Defining an instance for motor controller. This structure will hold configuration parameters and parameter readings for particular motor.
