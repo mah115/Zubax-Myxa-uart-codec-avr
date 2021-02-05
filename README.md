@@ -1,3 +1,5 @@
+This project is forked from Erik Kaju's project, code was updated for newer firmware and some functionality was added.
+
 # Zubax Myxa UART Codec for AVR
 
 [Myxa](https://zubax.com/products/myxa) is a high-end PMSM/BLDC motor controller (FOC ESC) for light unmanned aircraft and watercraft developed by [Zubax Robotics](https://zubax.com/)
